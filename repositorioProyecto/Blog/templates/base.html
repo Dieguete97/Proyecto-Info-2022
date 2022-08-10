@@ -1,0 +1,47 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>BLOG</title>
+
+	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+</head>
+<body>
+ <!--Header - menu-->
+ <header>
+	<div class="header-content">
+
+		<div class="logo">
+			<h1>PFI <b>G10</b> </h1>
+			<h1></h1>
+		</div>
+
+		<div class="menu">
+
+			<nav>
+				<ul>
+					<li><a href="{% url 'home' %}">Inicio</a></li>
+					<li class = "menu-selected"><a href="#" class="text-menu-selected">¿Quienes somos?</a></li>
+					<li><a href="{% url 'noticias:listar_noticias' %}">Noticias</a></li>
+					<li><a href="#">Calendario</a></li>
+					<li><a href="#">Descargas</a></li>
+					<li><a href="{%url 'usuarios:usuario_asd'%}">Registrarse</a></li>
+				</ul>
+			</nav>
+
+		</div>
+
+	</div>  
+
+</header>
+	<br><br>
+	<!-- FIN MENU -->
+
+	{% block contenido %}
+
+	{% endblock contenido %}
+
+</body>
+</html>

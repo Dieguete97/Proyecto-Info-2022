@@ -1,0 +1,135 @@
+.h2{
+    color: rgb(4, 0, 255);
+}
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background: rgb(255, 255, 255);
+    box-shadow: 0 4px 25px -22px rgb(180, 0, 0);
+    z-index: 2;
+}
+.header-content{
+    max-width: 1200px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+}
+.logo{
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+}
+
+/*Color del logo*/
+
+.logo h1 b{
+    color: #045727;
+}
+.logo h1{
+    color: aquamarine;
+}
+.menu {
+    height: 80px;
+}
+
+
+.menu nav{
+    height: 100%;
+}
+
+.menu nav ul{
+    height: 100%;
+    display: flex;
+    list-style: none; /*Quita los puntitos de las listas*/
+}
+
+.menu nav ul li{
+    height: 100%;
+    margin: 0px 20px; /*Separacion del menú/lista*/
+    display: flex; /*Alinea el menu a la altura del .logo*/
+    justify-content: center; /*Justifica el texto*/
+    align-items: center; /*Alinea al centro*/
+    position: relative; /*Hace que se relacione con el .menu:before (y fraccione la linea azul)*/
+}
+.menu-selected:before{
+    content: '';
+    width: 100%;
+    height: 4px;
+    background: #E2D187;
+    position: absolute; /*Crea una linea que cubre todo el largo *centro del texto* */
+    top: 0;
+    left: 0; /*Sube la linea hasta el borde superior*/
+
+}
+.menu nav ul li a{
+    color: #777777;
+    font-size: 18px;
+    transition: color 300ms; /*Le da un efecto al nuevo color cuando pasas el cursor sobre el menú*/
+}
+
+/*Color al menu cuando cruza el cursor*/
+
+.menu nav ul li a:hover{
+    color: #d4b422;
+}
+
+.container-cover{
+    width: 100%;
+    height: 500px;
+    position: relative;
+    top: 80px; /*Mide lo mismo que el Header (para que pueda verse debajo de el*/
+    background-image: url(../img/gato.jpg); /*Agrega la imagen de la portada*/
+    background-position: center;
+    background-size: cover; /*Adapta el tamaño de la imagen a la ventana*/
+    background-repeat: no-repeat; /*Evita el "mosaico"*/
+}
+container-cover:before{
+    content: '';
+    width: 100%;
+    height: 100%;
+    background: rgb(247, 225, 193, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/*Centrar el texto?*/
+
+.container-info-cover{
+    max-width: 800px;
+    height: 500px;
+    margin: auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /*Trae el texto al frente*/
+    position: relative;
+    z-index: 1;
+}
+
+/*Formato texto*/
+
+.container-info-cover h1{
+    font-size: 60px;
+    font-weight: 500;
+    color: rgb(46, 161, 56); /*Color del texto*/
+    margin-bottom: 20px; /*Espaciado entre ambos textos*/
+}
+
+/*Formato Parrafo*/
+
+.container-info-cover p{
+    color: rgb(232, 247, 26); /*Color del parrafo*/
+    font-size: 20px;
+    font-weight: 300;
+}
+.form-check-label-input{
+    color: rgb(76, 0, 255);
+}
