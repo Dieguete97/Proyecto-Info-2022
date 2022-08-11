@@ -6,5 +6,4 @@ admin.site.register(Categoria)
 
 
 # Register your models here.
-from .models import Noticia
 admin.site.register(Noticia)
