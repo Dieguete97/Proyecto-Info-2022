@@ -2,9 +2,28 @@
 {% load static %}
 
 {% block contenido %}
-<br><br>
-	<h2>SOY LA PANTALLA DE LISTAR NOTICIAS</h2>
+	
+
+
+	<h1>NOTICIAS ACTUALES</h1>
 	<br>
+
+	{% for n in notis %}
+		<h2>{{ n.titulo }}</h2>
+		<p>CATEGORIA: {{ n.categoria.nombre }}</p>
+		{% if n.autor %}
+			<p>AUTOR: {{ n.autor }}</p>
+		{% endif %}
+
+		<p>CUERPO: {{ n.cuerpo }}</p>
+
+		{% if n.imagen %}
+			<img src="{{ n.imagen.url }}" width="100px" height="100px">
+		{% else %}
+			<p>NO TIENE IMAGEN </p>
+		{% endif %}
+
+	{% endfor %}
 	
 
 {% endblock contenido %}
