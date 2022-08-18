@@ -3,32 +3,23 @@
 
 {% block contenido %}
 	
+	<br>
 
-
-	<h1>NOTICIAS ACTUALES</h1>
+	<h1>¿Quienes somos?</h1>
 	<br>
 
 	{% for n in notis %}
 		<h2>{{ n.titulo }}</h2>
-		<p>CATEGORIA: {{ n.categoria.nombre }}</p>
-		{% if n.autor %}
-			<p>AUTOR: {{ n.autor }}</p>
-		{% endif %}
 
-		<p>CUERPO: {{ n.cuerpo }}</p>
+		<p>Acerca de : {{ n.cuerpo }}</p>
 
 		{% if n.imagen %}
 			<img src="{{ n.imagen.url }}" width="100px" height="100px">
 		{% else %}
 			<p>NO TIENE IMAGEN </p>
 		{% endif %}
-		<a href="{% url 'noticias:detalle_noticias' n.pk %}">VER MAS</a>
 
 	{% endfor %}
 	
 
 {% endblock contenido %}
-
-
-
-
