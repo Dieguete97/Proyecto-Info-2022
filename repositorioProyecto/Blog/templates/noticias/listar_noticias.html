@@ -22,6 +22,7 @@
 		{% else %}
 			<p>NO TIENE IMAGEN </p>
 		{% endif %}
+		<a href="{% url 'noticias:detalle_noticia' n.pk%}">VER MAS</a>
 
 	{% endfor %}
 	

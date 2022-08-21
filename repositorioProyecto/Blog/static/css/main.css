@@ -60,14 +60,14 @@ header{
     content: '';
     width: 100%;
     height: 4px;
-    background: #E2D187;
+    background: #87e2c7;
     position: absolute; /*Crea una linea que cubre todo el largo *centro del texto* */
     top: 0;
     left: 0; /*Sube la linea hasta el borde superior*/
 
 }
 .menu nav ul li a{
-    color: #777777;
+    color: #1000f5;
     font-size: 18px;
     transition: color 300ms; /*Le da un efecto al nuevo color cuando pasas el cursor sobre el menú*/
 }
@@ -132,4 +132,9 @@ container-cover:before{
 }
 .form-check-label-input{
     color: rgb(76, 0, 255);
+}
+
+.span{
+    color: #d4b422;
+
 }
