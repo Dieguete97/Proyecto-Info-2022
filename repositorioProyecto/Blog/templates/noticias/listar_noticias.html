@@ -11,6 +11,7 @@
 	{% for n in notis %}
 		<h2>{{ n.titulo }}</h2>
 		<p>CATEGORIA: {{ n.categoria.nombre }}</p>
+		<a href="{% url 'noticias:detalle_noticias' n.pk %}">VER MAS</a>
 		{% if n.autor %}
 			<p>AUTOR: {{ n.autor }}</p>
 		{% endif %}
@@ -22,7 +23,7 @@
 		{% else %}
 			<p>NO TIENE IMAGEN </p>
 		{% endif %}
-		<a href="{% url 'noticias:detalle_noticias' n.pk %}">VER MAS</a>
+		
 
 	{% endfor %}
 	

@@ -26,13 +26,14 @@
 					<li><a href="{%url 'somos:quienes_somos'%}">¿Quienes somos?</a></li>
 					<li><a href="{% url 'noticias:listar_noticias' %}">Noticias</a></li>
 					<li><a href="#">Calendario</a></li>
-					<li><a href="#">Descargas</a></li>
-					<li><a href="{%url 'usuarios:usuario_asd'%}">Registrarse</a></li>
+					<li><a href="#">Descargas</a></li>	
+					
 					{% if user.is_authenticated %}
 					<span>HOLA {{user.username}}!!</span>
 					<li><a href="{% url 'logout' %}">LOGOUT</a></li>
 					{% else %}
 					<li><a href="{% url 'login' %}">LOGIN</a></li>
+					<li><a href="{% url 'usuarios:registro' %}">REGISTRAR</a></li>
 					{% endif %}
 				</ul>
 			</nav>

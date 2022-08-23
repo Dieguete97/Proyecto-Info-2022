@@ -23,5 +23,28 @@
 	{% endif %}
 	
 	
+	<h2> Comentarios</h2>
+
+	<hr>
+
+	<div data-gb-custom-block data-tag="for"></div>
+
+    <div class="comment">
+        <div class="date">{{ comment.created_date }}</div>
+        <strong>{{ comment.author }}</strong>
+        <p>{{ comment.text }}</p>
+    </div>
+
+	<div data-gb-custom-block data-tag="empty">
+
+    	<p>No hay comentarios todavía :(</p>
+
+	</div>
+		
+
+
+		
+			
+	
 
 {% endblock contenido %}

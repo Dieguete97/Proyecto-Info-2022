@@ -27,8 +27,10 @@ urlpatterns = [
 
     path('', views.Home, name = 'home'),
 
-    path('login/',auth.LoginView.as_view(template_name='usuarios/usuario_asd.html'),name='login'),
+    path('login/',auth.LoginView.as_view(template_name='usuarios/login.html'),name='login'),
     path('logout/',auth.LogoutView.as_view(),name="logout"),
+
+    #URL DE APLICACIONES
 
     path('Somos/', include('apps.somos.urls')),
 
@@ -38,6 +40,4 @@ urlpatterns = [
 
     
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
-
 
