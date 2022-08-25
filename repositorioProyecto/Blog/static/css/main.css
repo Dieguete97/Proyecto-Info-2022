@@ -8,7 +8,7 @@ header{
     left: 0;
     width: 100%;
     height: 80px;
-    background: rgb(255, 255, 255);
+    background: rgb(248, 198, 154);
     box-shadow: 0 4px 25px -22px rgb(180, 0, 0);
     z-index: 2;
 }
@@ -27,12 +27,10 @@ header{
 
 /*Color del logo*/
 
-.logo h1 b{
-    color: #045727;
-}
 .logo h1{
-    color: aquamarine;
+    color: rgb(0, 0, 0);
 }
+
 .menu {
     height: 80px;
 }
@@ -67,7 +65,7 @@ header{
 
 }
 .menu nav ul li a{
-    color: #777777;
+    color: gray;
     font-size: 18px;
     transition: color 300ms; /*Le da un efecto al nuevo color cuando pasas el cursor sobre el menú*/
 }
@@ -83,16 +81,12 @@ header{
     height: 500px;
     position: relative;
     top: 80px; /*Mide lo mismo que el Header (para que pueda verse debajo de el*/
-    background-image: url(../img/gato.jpg); /*Agrega la imagen de la portada*/
-    background-position: center;
-    background-size: cover; /*Adapta el tamaño de la imagen a la ventana*/
-    background-repeat: no-repeat; /*Evita el "mosaico"*/
 }
 container-cover:before{
     content: '';
     width: 100%;
     height: 100%;
-    background: rgb(247, 225, 193, 0.5);
+    background: rgb(0, 0, 0);
     position: absolute;
     top: 0;
     left: 0;
@@ -132,4 +126,13 @@ container-cover:before{
 }
 .form-check-label-input{
     color: rgb(76, 0, 255);
+}
+
+body{
+    background-image: url(../img/fondo.jpg);
+	border:0;
+	font:14px Arial, Helvetica, sans-serif;
+	color:#3c4046;
+	line-height:20px;
+	min-width:1000px;
 }
