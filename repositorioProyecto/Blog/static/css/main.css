@@ -136,3 +136,6 @@ body{
 	line-height:20px;
 	min-width:1000px;
 }
+body::-webkit-scrollbar {
+	width: 7px;
+}
