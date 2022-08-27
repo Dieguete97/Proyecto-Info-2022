@@ -13,26 +13,46 @@
  <header>
 	<div class="header-content">
 
-		<a class="navbar-item" href="../">
-			<img src="{% static 'img/kis.jpg' %}" width="75" height="75" alt="Logo"></a>
+		<a class="navbar-item" href="{% url 'home' %}"><img src="{% static 'img/kis.jpg' %}" width="75" height="75" alt="Logo"></a>
+			
+		<div class="logo">
+			<h1>Fundación Chaqueña</h1>
+			<h1></h1>
+		</div>
 
 		<div class="menu">
 
 			<nav>
-				<ul>
-					<li><a href="{% url 'home' %}">Inicio</a></li>
-					<li><a href="{%url 'somos:quienes_somos'%}">¿Quienes somos?</a></li>
-					<li><a href="{% url 'noticias:listar_noticias' %}">Noticias</a></li>
-					<li><a href="#">Calendario</a></li>
-					<li><a href="#">Descargas</a></li>	
+				<nav class="navbar" style="background-color: #e3f2fd;">
+					<div class="container-fluid">
+						<a class="navbar-brand" href="{% url 'home' %}">Inicio</a>
+						<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+						  <span class="navbar-toggler-icon"></span>
+						</button>
+
+						<a class="nav-item">
+							<a class="nav-link" href="{%url 'somos:quienes_somos'%}">¿Quienes somos?</a>
+						 
+						  <a class="nav-item">
+							<a class="nav-link" href="{% url 'noticias:listar_noticias' %}">Noticias</a>
+						  
+						  <a class="nav-item">
+							<a class="nav-link" href="#">Calendario</a>
+						  
+						  <a class="nav-item">
+							<a class="nav-link" href="#">Descargas</a>
 					
-					{% if user.is_authenticated %}
-					<span>HOLA {{user.username}}!!</span>
-					<li><a href="{% url 'logout' %}">LOGOUT</a></li>
-					{% else %}
-					<li><a href="{% url 'login' %}">LOGIN</a></li>
-					<li><a href="{% url 'usuarios:registro' %}">REGISTRAR</a></li>
-					{% endif %}
+
+							{% if user.is_authenticated %}
+								<span>HOLA {{user.username}}!!</span>
+								<a class="nav-item"></a>
+								<a class="nav-link" href="{% url 'logout' %}">LOGOUT</a>
+							{% else %}
+								<a class="nav-item"></a>
+								<a class="nav-link" href="{% url 'login' %}">LOGIN</a>
+								<a class="nav-item"></a>
+								<a class="nav-link" href="{% url 'usuarios:registro' %}">REGISTRAR</a>
+							{% endif %}
 				</ul>
 			</nav>
 
