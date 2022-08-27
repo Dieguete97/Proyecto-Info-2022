@@ -4,7 +4,10 @@ from django.views.generic.detail import DetailView
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.mixins import LoginRequiredMixin
 
-from .models import Noticia
+from django.urls import reverse_lazy
+from django.http import HttpResponseRedirect
+
+from .models import Noticia,Comentario,Categoria
 
 def Listar(request):
 	#Creo el diccionario para pasar datos al temaplte
@@ -13,6 +16,13 @@ def Listar(request):
 	todas = Noticia.objects.all()
 	#PASARLO AL TEMPLATE
 	ctx['notis'] = todas
+
+	if "categoria" in request.GET:
+		categoria = request.GET['categoria']
+		if categoria != "0":
+			noticias = noticias.filter(categoria=categoria)
+	ctx['categorias'] = Categoria.objects.all()
+        
 
 	return render(request,'noticias/listar_noticias.html',ctx)
 
@@ -36,6 +46,19 @@ class Detalle_Noticia_Clase(LoginRequiredMixin,DetailView):
 	model = Noticia
 	template_name = 'noticias/detalle_noticia.html'
 
+
+
 #SI USO UNA VISTA BASADA EN CLASE EL CONTEXTO SE LLAMA:
 # SI ES UNO SOLO object
 # SI SON MUCHOS SE LLAMA obect_list
+
+def Agregar_Comentario(request,pk):
+	texto_comentario = request.POST.get('coment')
+	
+	#Forma 1 (es la mejor para este caso)
+	noti = Noticia.objects.get(pk = pk)
+
+	c = Comentario.objects.create(noticia = noti, texto = texto_comentario, usuario = request.user)
+
+	return HttpResponseRedirect(reverse_lazy('noticias:detalle_noticias' , kwargs={'pk':pk}))
+

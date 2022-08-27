@@ -1,0 +1,28 @@
+# en views.py de noticias
+
+meses = ['Enero', 'Febrero',...]
+
+
+def listar(request):
+	ctx={}
+	noticias = Noticias.objects.all()
+	
+	#filtro mes
+	
+	if "mes" in request.GET:
+		mes = request.GET["mes"]
+		if mes!= "0":
+			noticias=noticias.filter(mes_creado=mes)
+	
+	#igual para años
+	....
+	#igual para dias
+	....
+
+#para el template
+	ctx["meses"] = meses
+	
+	ctx[años]...
+	ctx[dias]...
+
+	return render(request,"noticias/listarnoticias.html",ctx)

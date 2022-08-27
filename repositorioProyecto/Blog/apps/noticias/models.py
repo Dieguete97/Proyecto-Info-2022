@@ -1,4 +1,5 @@
 from django.db import models
+from apps.usuarios.models import Usuario
 
 class Categoria(models.Model):
 	nombre = models.CharField(max_length = 60)
@@ -19,18 +20,14 @@ class Noticia(models.Model):
 	def __str__(self):
 		return self.titulo
 
+	def obtener_mis_comentarios(self):
+		return self.mis_comentarios.all()
 
-class Comment(models.Model):
-    post = models.ForeignKey(Noticia, related_name='comments', on_delete = models.CASCADE)
-    author = models.CharField(max_length=200)
-    text = models.TextField()
-    created_date = models.DateTimeField(auto_now_add = True)
-    approved_comment = models.BooleanField(default=False)
+class Comentario(models.Model):
+	noticia = models.ForeignKey(Noticia, related_name = 'mis_comentarios', on_delete = models.CASCADE)
+	texto = models.TextField()
+	creado = models.DateTimeField(auto_now_add = True)
+	usuario = models.ForeignKey(Usuario, related_name = 'usuario_comentario' , on_delete = models.CASCADE)
 
-    def approve(self):
-        self.approved_comment = True
-        self.save()
-
-    def __str__(self):
-        return self.text
-
+	def __str__(self):
+		return self.texto

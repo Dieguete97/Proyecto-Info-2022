@@ -7,6 +7,7 @@
 
 	<h1>DETALLE NOTICIA</h1>
 	<br>
+		
 
 	<h2>{{object.titulo}}</h2>
 	<p>CATEGORIA: {{ object.categoria.nombre }}</p>
@@ -22,29 +23,23 @@
 		<p>NO TIENE IMAGEN </p>
 	{% endif %}
 	
-	
-	<h2> Comentarios</h2>
 
-	<hr>
-
-	<div data-gb-custom-block data-tag="for"></div>
-
-    <div class="comment">
-        <div class="date">{{ comment.created_date }}</div>
-        <strong>{{ comment.author }}</strong>
-        <p>{{ comment.text }}</p>
-    </div>
-
-	<div data-gb-custom-block data-tag="empty">
-
-    	<p>No hay comentarios todavía :(</p>
-
-	</div>
+	<h1>COMENTARIOS</h1><br>
+	{% for x in object.obtener_mis_comentarios %}
+		<b><p>{{x.usuario}}-->{{x.creado}}</p></b>
 		
+		<p>{{x.texto}}</p>
+	{% endfor %}
 
-
-		
-			
-	
+	{% if user.is_authenticated %}
+		<form method="POST" action="{% url 'noticias:agregar_comentario' object.pk %}">{% csrf_token %}
+			<textarea rows="5" name="coment">
+				
+			</textarea>
+			<button type="submit">COMENTAR</button>
+		</form>
+	{% endif %}
 
 {% endblock contenido %}
+			
+

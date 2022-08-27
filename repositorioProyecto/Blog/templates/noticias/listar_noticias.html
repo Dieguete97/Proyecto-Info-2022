@@ -6,30 +6,101 @@
 
 
 	<h1>NOTICIAS ACTUALES</h1>
-	<br>
+	<div class="caja_filtro" style="background-color:rgb(192, 164, 116); color:white;">
+		<form action="{% url 'noticias:listar_noticias' %}">
+		<label>CATEGORIAS</label>
+		<BR>
+		<select name="categoria" id="categoria">
+		<option value="0">Seleccione una categoria</option>
+		{% for categoria in categorias %}
+		<option value="{{categoria.pk}}">{{categoria.nombre}}</option>
+		{% endfor %}
+		</select>
+		<br>
 
-	{% for n in notis %}
-		<h2>{{ n.titulo }}</h2>
-		<p>CATEGORIA: {{ n.categoria.nombre }}</p>
-		<a href="{% url 'noticias:detalle_noticias' n.pk %}">VER MAS</a>
-		{% if n.autor %}
-			<p>AUTOR: {{ n.autor }}</p>
-		{% endif %}
+			<!-- <label for="{{ categoria.nombre }}">Elige una categoria:</label>
+			{% for categorias in categoria %}
+				<select name="Categoria" id="{{ categoria.nombre }}">
+    			<option value="{{ categoria.pk }}">Patronales</option>
+  				<option value="{{ categoria.pk }}">Sociales</option>
+				</select>
+			{% endfor %} -->
+  			
 
-		<p>CUERPO: {{ n.cuerpo }}</p>
 
-		{% if n.imagen %}
-			<img src="{{ n.imagen.url }}" width="100px" height="100px">
-		{% else %}
-			<p>NO TIENE IMAGEN </p>
-		{% endif %}
+			
+	<div class="card" style="width: 18rem;">
+		{% for n in notis %}
+			{% if n.imagen %}
+				<img src="{{ n.imagen.url }}" width="100px" height="100px">
+			{% else %}
+				<p>NO TIENE IMAGEN </p>
+			{% endif %}
+					<div class="card-body">
+					<h5 class="card-title"><p>CATEGORIA: {{ n.categoria.nombre }}</p>
+						{% if n.autor %}
+							<p>AUTOR: {{ n.autor }}</p></h5>
+						{% endif %}
+							<h2>{{ n.titulo }}</h2>
+							<p class="card-text"><p>CUERPO: {{ n.cuerpo }}</p></p>
+							<a href="{% url 'noticias:detalle_noticias' n.pk %}" class="btn btn-primary">VER MAS</a>
+						</div>
+				 	 </div>		  
+			{% endfor %}
+		
+	
+
 		
 
-	{% endfor %}
+		
+		
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				<!--  
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="true">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="..." class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="..." class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="..." class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
 	
 
 {% endblock contenido %}
-
+-->
 
 
 
