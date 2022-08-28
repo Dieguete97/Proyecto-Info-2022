@@ -6,7 +6,14 @@
 
 
 	<h1>NOTICIAS ACTUALES</h1>
-	<div class="caja_filtro" style="background-color:rgb(192, 164, 116); color:white;">
+
+	
+
+
+		
+	
+
+	<!--<div class="caja_filtro" style="background-color:rgb(192, 164, 116); color:white;">
 		<form action="{% url 'noticias:listar_noticias' %}">
 		<label>CATEGORIAS</label>
 		<BR>
@@ -17,7 +24,7 @@
 		{% endfor %}
 		</select>
 		<br>
-
+		-->
 			<!-- <label for="{{ categoria.nombre }}">Elige una categoria:</label>
 			{% for categorias in categoria %}
 				<select name="Categoria" id="{{ categoria.nombre }}">
@@ -26,10 +33,47 @@
 				</select>
 			{% endfor %} -->
   			
-
-
 			
 	<div class="card" style="width: 18rem;">
+
+		<title>
+
+			Búsqueda de productos
+			
+			</title>
+			
+			</head>
+			
+			<body>
+			
+			<form action="/buscar/" method="GET">
+			
+			<input type="text" name="prd">
+			
+			<input type="submit" value="Buscar">
+			
+			</form>
+
+			
+			<div class="container">
+				<div class="row">
+					<div class="col-md-12 search">
+						<form method="get">
+							<div id="custom-search-input">
+								<div class="input-group col-md-12">
+									<input type="text" class="form-control" placeholder="Buscar..." name="buscar">
+									<span class="input-group-list">
+										<i class="icon icon-search"></i>
+										<button type="submit" class="boton btn-success">Buscar</button>
+									</span>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		
+		
 		{% for n in notis %}
 			{% if n.imagen %}
 				<img src="{{ n.imagen.url }}" width="100px" height="100px">
