@@ -4,56 +4,11 @@
 {% block contenido %}
 	
 
-
-	<h1>NOTICIAS ACTUALES</h1>
-
-	
-
-
-		
-	
-
-	<!--<div class="caja_filtro" style="background-color:rgb(192, 164, 116); color:white;">
-		<form action="{% url 'noticias:listar_noticias' %}">
-		<label>CATEGORIAS</label>
-		<BR>
-		<select name="categoria" id="categoria">
-		<option value="0">Seleccione una categoria</option>
-		{% for categoria in categorias %}
-		<option value="{{categoria.pk}}">{{categoria.nombre}}</option>
-		{% endfor %}
-		</select>
-		<br>
-		-->
-			<!-- <label for="{{ categoria.nombre }}">Elige una categoria:</label>
-			{% for categorias in categoria %}
-				<select name="Categoria" id="{{ categoria.nombre }}">
-    			<option value="{{ categoria.pk }}">Patronales</option>
-  				<option value="{{ categoria.pk }}">Sociales</option>
-				</select>
-			{% endfor %} -->
-  			
-			
-	<div class="card" style="width: 18rem;">
-
-		<title>
-
-			Búsqueda de productos
-			
-			</title>
-			
-			</head>
-			
-			<body>
-			
-			<form action="/buscar/" method="GET">
-			
-			<input type="text" name="prd">
-			
-			<input type="submit" value="Buscar">
-			
-			</form>
-
+    
+	<h2>NOTICIAS ACTUALES</h2>
+  			<div class="clear"></div>
+			<section id="contenido"></section>
+			    <article class="article"></article>
 			
 		{% for n in notis %}
 			{% if n.imagen %}
@@ -66,16 +21,13 @@
 						{% if n.autor %}
 							<p>AUTOR: {{ n.autor }}</p></h5>
 						{% endif %}
-							<h2>{{ n.titulo }}</h2>
-							<p class="card-text"><p>CUERPO: {{ n.cuerpo }}</p></p>
+							<h3>{{ n.titulo }}</h3>
 							<a href="{% url 'noticias:detalle_noticias' n.pk %}" class="btn btn-primary">VER MAS</a>
 						</div>
 				 	 </div>		  
 			{% endfor %}
-		
-	
 
-		
+				<div class="card" style="width: 18rem;">
 
 		
 		
