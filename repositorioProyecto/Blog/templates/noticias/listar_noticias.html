@@ -31,21 +31,23 @@
 	
 	
 		{% for n in notis %}
+			<h2>{{ n.titulo }}</h2>
+			<div class="card-body">
+				<h5 class="card-title"><p>CATEGORIA: {{ n.categoria.nombre }}</p>
+				{% if n.autor %}
+					<p>AUTOR: {{ n.autor }}</p></h5>
+				{% endif %}
+					
+					<p class="card-text"><p>CUERPO: {{ n.cuerpo }}</p></p>
+					<a href="{% url 'noticias:detalle_noticias' n.pk %}" class="btn btn-primary">VER MAS</a>
+				</div>
+			  </div>	
 			{% if n.imagen %}
 				<img src="{{ n.imagen.url }}" width="100px" height="100px">
 			{% else %}
 				<p>NO TIENE IMAGEN </p>
 			{% endif %}
-					<div class="card-body">
-					<h5 class="card-title"><p>CATEGORIA: {{ n.categoria.nombre }}</p>
-						{% if n.autor %}
-							<p>AUTOR: {{ n.autor }}</p></h5>
-						{% endif %}
-							<h2>{{ n.titulo }}</h2>
-							<p class="card-text"><p>CUERPO: {{ n.cuerpo }}</p></p>
-							<a href="{% url 'noticias:detalle_noticias' n.pk %}" class="btn btn-primary">VER MAS</a>
-						</div>
-				 	 </div>		  
+						  
 			{% endfor %}
 
 			{% include 'paginacion.html' %}
