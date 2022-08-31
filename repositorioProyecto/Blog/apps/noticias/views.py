@@ -14,7 +14,7 @@ def Listar(request):
 	busqueda = request.GET.get("buscar",None)
 	print(busqueda)
 	if busqueda:
-		noticias = Noticia.objects.filter(titulo__icontains = busqueda)
+		noticias = Noticia.objects.filter(categoria__nombre__icontains = busqueda)
 	else:
 		noticias = Noticia.objects.all()
 	print(noticias)
