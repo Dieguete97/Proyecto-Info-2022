@@ -13,15 +13,16 @@
  <header>
 	<div class="header-content">
 
+		<a class="navbar-item" href="{% url 'home' %}"><img src="{% static 'img/kis.jpg' %}" width="75" height="75" alt="Logo"></a>
 			
 		<div class="logo">
-			<h1>Fundación Chaqueña<a class="navbar-item" href="{% url 'home' %}"><img src="{% static 'img/kis.jpg' %}" width="75" height="75" alt="Logo"></a></h1>
+			<h1>Fundación Chaqueña</h1>
 		</div>
 
 		<div class="menu">
 
 			<nav>
-				<nav class="navbar">
+				<nav class="navbar" style="background-color: #e3f2fd;">
 					<div class="container-fluid">
 						<a class="navbar-brand" href="{% url 'home' %}">Inicio</a>
 						<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -70,4 +71,7 @@
 
 </body>
 </html>
+
+
+
 
