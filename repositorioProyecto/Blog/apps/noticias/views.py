@@ -10,35 +10,31 @@ from django.http import HttpResponseRedirect
 from .models import Noticia,Comentario,Categoria
 from django.db.models import Q
 
-def Listar(request):
-	#Creo el diccionario para pasar datos al temaplte
-	ctx = {}	
-	#BUSCAR LO QUE QUIERO EN LA BD
-	todas = Noticia.objects.all()
-	#PASARLO AL TEMPLATE
-	ctx['notis'] = todas
 
-	if "categoria" in request.GET:
-		categoria = request.GET['categoria']
-		if categoria != "0":
-			noticias = noticias.filter(categoria=categoria)
-	ctx['categorias'] = Categoria.objects.all()
+def listar_noticia(request):
+	busqueda = request.GET.get("buscar",None)
+	print(busqueda)
+	if busqueda:
+		noticias = Noticia.objects.filter(titulo__icontains = busqueda)
+	else:
+		noticias = Noticia.objects.all()
+	print(noticias)
+	return render(request, 'noticias/listar_noticias.html', {'notis':noticias})
 
-	return render(request,'noticias/listar_noticias.html',ctx)
 
-def Buscar(request):
+
+
+#def Buscar(request):
 	#creo el filtro de busqueda
-	queryset= request.GET.get("buscar")
-	noticias= Noticia.objects.filter(estado = True)
-	if queryset :
-		noticias= Noticia.objects.filter(
-			Q(Categoria__icontains= queryset) |
-			Q(Titulo__icontains= queryset)
-		).distinct()
-	return render(request, 'noticias/listar_noticias.html', {'Noticias': noticias})
-
-
-        
+#	queryset= request.GET.get("buscar")
+#	categorias= Categoria.objects.all()
+#	if queryset :
+#		categorias= Noticia.objects.filter(
+#			Q(Categoria__icontains= queryset) |
+#			Q(Titulo__icontains= queryset)
+#		).distinct()
+#	return render(request, 'noticias/listar_noticias.html', {'Categorias': categorias})
+	  
 
 # EJEMPLO DE COMO DESARMA EL CTX EL TEMPLATE.
 # ctx['nombre'] = 'nicolas'
@@ -84,16 +80,11 @@ def busqueda_categorias(request):
 def Buscar(request):
 
 	if request.GET["prd"]:
-
 		mensaje="Categoria buscada: %r" %request.GET["prd"] 
-
 		return HttpResponse(mensaje)
 		#noticia=request.GET["prd"]
 
 		#categoria=categoria.objects.filter(nombre_icontains=producto)
-
 	else:
-
 		mensaje="No has introducido nada" 
-	
 	return HttpResponse(mensaje)

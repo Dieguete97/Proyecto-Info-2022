@@ -9,9 +9,9 @@ app_name = 'noticias'
 
 urlpatterns = [
     
-    path('listar/', views.Listar, name = 'listar_noticias'),
+    path('listar/', views.listar_noticia, name = 'listar_noticias'),
 
-    path('Buscar/', views.Buscar, name = 'buscar_noticias'),
+    #path('Buscar/', views.Listar, name = 'listar_noticias'),
 
     # URL PARA VISTA BASADA EN FUNCION
     #path('detalle/<int:pk>', views.Detalle_Noticia_Funcion, name = 'detalle_noticias'),
