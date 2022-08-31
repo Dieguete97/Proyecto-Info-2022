@@ -9,7 +9,7 @@ app_name = 'noticias'
 
 urlpatterns = [
     
-    path('listar/', views.listar_noticia, name = 'listar_noticias'),
+    path('listar/', views.Listar, name = 'listar_noticias'),
 
     #path('Buscar/', views.Listar, name = 'listar_noticias'),
 
