@@ -26,7 +26,7 @@ header h1{
 nav{
     background: #d6d1b5;
     height: 50px;
-    
+    font-family: sans-serif;
 }
 nav ul li{
     float: left;
@@ -44,17 +44,23 @@ h2{
     background: #ffffff;
     color: #000000;
     line-height: 100px;
-
+    text-align: center;
 }
 a{
     color: #ffffff;
 }
-h2{
-    text-align: center;
+h3{
+    font-size: 40;
 }
 h4{
     color:#000000;
     text-align: center;
     background: #ffffff;
     opacity: 0.9;
+}
+p{
+    font-size: 30;
+}
+h1{
+    color:#000000; 
 }
