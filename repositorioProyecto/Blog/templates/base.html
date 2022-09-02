@@ -6,6 +6,7 @@
 <html>
 <head>
 	<title>BLOG</title>
+	<link rel="icon" href="{% static 'img/logo.png' %}">
 
 	<link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
 </head>
@@ -16,7 +17,7 @@
 
 			
 		<div class="logo">
-			<h1>Fundación Chaqueña<a class="navbar-item" href="{% url 'home' %}"><img src="{% static 'img/logo.png' %}" width="75" height="75" alt="Logo"></a></h1>
+			<h1>Comunidades Eclesiales de Base Diócesis San Roque <a class="navbar-item" href="{% url 'home' %}"><img src="{% static 'img/mate.png' %}" width="75" height="75" alt="Logo"></a></h1>
 		</div>
 
 		<div class="menu">
@@ -36,10 +37,10 @@
 							<a class="nav-link" href="{% url 'noticias:listar_noticias' %}">Noticias</a>
 						  
 						  <a class="nav-item">
-							<a class="nav-link" href="#">Calendario</a>
+							<a class="nav-link" href="{% url 'eventos:ver_eventos' %}">Eventos</a>
 						  
 						  <a class="nav-item">
-							<a class="nav-link" href="#">Descargas</a>
+							<a class="nav-link" href="#">Contactos</a>
 					
 
 							{% if user.is_authenticated %}

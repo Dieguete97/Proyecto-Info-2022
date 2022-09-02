@@ -10,6 +10,12 @@
 		
 
 	<h3><ins>{{object.titulo}}</ins></h3>
+	{% if object.imagen %}
+	<img src="{{ object.imagen.url }}" width="100px" height="100px">
+{% else %}
+	<p>NO TIENE IMAGEN </p>
+{% endif %}
+
 	<p>CATEGORIA: {{ object.categoria.nombre }}</p>
 	{% if object.autor %}
 		<p>AUTOR: {{ object.autor }}</p>
@@ -17,14 +23,7 @@
 
 	<p>CUERPO: {{ object.cuerpo }}</p>
 
-	{% if object.imagen %}
-		<img src="{{ object.imagen.url }}" width="100px" height="100px">
-	{% else %}
-		<p>NO TIENE IMAGEN </p>
-	{% endif %}
-	
-
-	<h4>COMENTARIOS</h4><br>
+	<h4><ins>COMENTARIOS</ins></h4><br>
 	{% for x in object.obtener_mis_comentarios %}
 		<b><p>{{x.usuario}}-->{{x.creado}}</p></b>
 		

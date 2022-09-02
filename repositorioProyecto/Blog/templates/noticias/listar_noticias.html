@@ -12,45 +12,62 @@
 	
 
 
-	<h2>NOTICIAS ACTUALES</h2>
-	<form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"method="GET">
+	<div class="col-md-15">
+      <div class="card">
+      <div class="card-header">
+          <div class="card-body">
+            <div class="row">
+             <div class="col-md-15">      
+          <h2><center><div>NOTICIAS ACTUALES</div></center></h2>
+             </div>
+            </div>
+           </div>
+      </div>
+      </div>
+      </div>
+ <br>
+ <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search"method="GET">
 
-		<div class="input-group">
-			<input type="text" class="form-control bg-light border-5 small" placeholder="Buscar..." name="buscar" value="{{ request.GET.buscar }}">
-				<div class="input-group-append">
-					<i class="icon icon-search"></i>
-					<button type="submit" class="boton btn-success">Buscar</button>
-				</button>
-			</div>
-		</div>
-	</form>
-	<br>
-							
-  			
-			
-	
-	
-		{% for n in notis %}
-			<h3><ins>{{ n.titulo }}</h3></ins>
-			<div class="card-body">
-				<p class="card-title"><p>CATEGORIA: {{ n.categoria.nombre }}</p>
-				{% if n.autor %}
-					<p>AUTOR: {{ n.autor }}</p>
-					<p>Fecha: {{ n.creado }}</p>
-					
-				{% endif %}
-					
-					<p class="card-text"><p>CUERPO: {{ n.cuerpo }}</p></p>
-					<a href="{% url 'noticias:detalle_noticias' n.pk %}" class="btn btn-primary">VER MAS</a>
-				</div>
-			  </div>	
-			{% if n.imagen %}
-				<img src="{{ n.imagen.url }}" width="100px" height="100px">
-			{% else %}
-				<p>NO TIENE IMAGEN </p>
-			{% endif %}
-						  
-			{% endfor %}
+   <div class="input-group">
+      <input type="text" class="form-control bg-light border-5 small" placeholder="Buscar..." name="buscar" value="{{ request.GET.buscar }}">
+         <div class="input-group-append">
+            <i class="icon icon-search"></i>
+            <button type="submit" class="boton btn-success">Buscar</button>
+         </button>
+      </div>
+   </div>
+</form>
+<br>
+{% for n in notis %}
+<center>
+ <div class="card" style="width: 28rem;">
+{% if n.imagen %}
+<img src="{{ n.imagen.url }}" class="card-img-top">
+{% else %}
+<p>NO TIENE IMAGEN </p>
+{% endif %}
+<div class="card-body">
+<h3><ins>{{ n.titulo }}</h3></ins>
+<p class="card-text"><p>CUERPO: {{ n.cuerpo }}</p></p>
+</div>
+<ul class="list-group list-group-flush">
+{% if n.autor %}
+ <li class="list-group-item">Autor:{{ n.autor }}</li>
+ <li class="list-group-item">Fecha: {{ n.creado }}</li>
+ <li class="list-group-item">Categoría: {{ n.categoria.nombre }}</li>
+</ul>
+{% endif %}
+<div class="card-body">
+<a href="{% url 'noticias:detalle_noticias' n.pk %}" style= "background: black" class="btn btn-primary">VER MAS</a>
+</div>
+ </div>
+<br>
+ {% endfor %}
+</center>
+
+
+
+
 
 			{% include 'paginacion.html' %}
 
