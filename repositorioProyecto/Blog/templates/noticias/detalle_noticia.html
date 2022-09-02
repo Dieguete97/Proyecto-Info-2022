@@ -21,7 +21,7 @@
 		<p>AUTOR: {{ object.autor }}</p>
 	{% endif %}
 
-	<p>CUERPO: {{ object.cuerpo }}</p>
+	<p>{{ object.cuerpo }}</p>
 
 	<h4><ins>COMENTARIOS</ins></h4><br>
 	{% for x in object.obtener_mis_comentarios %}
